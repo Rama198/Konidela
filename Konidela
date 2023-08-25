@@ -40,4 +40,5 @@ int main()
 	C Obj2;
 	D Obj3;
 	return 0;
+    //diomond problem
 }
