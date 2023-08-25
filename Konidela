@@ -1,0 +1,43 @@
+#include<iostream>
+
+using namespace std;
+
+namespace DiamondIssue
+{
+	class A
+	{
+	public:
+		void fun() { cout << "A::fun()" << endl; }
+	};
+
+	class B: virtual public A
+	{};
+
+	class C: virtual public A
+	{};
+	
+	class D: public B, public C
+	{
+	public:
+		void show()
+		{
+			fun(); // ambiguous access of 'fun'
+		}
+	};
+}
+
+using namespace DiamondIssue;
+
+int main()
+{
+
+	cout << "class A size: " << sizeof(A) << endl;
+	cout << "class B size: " << sizeof(B) << endl;
+	cout << "class C size: " << sizeof(C) << endl;
+	cout << "class D size: " << sizeof(D) << endl;
+
+	B obj1;
+	C Obj2;
+	D Obj3;
+	return 0;
+}
